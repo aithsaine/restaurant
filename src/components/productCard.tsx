@@ -20,9 +20,9 @@ const FoodCard = ({ food, addToOrders}: {
         <img className="relative w-40 h-40" src={food?.image} alt=""/>
     </div>
     <div className="relative text-white px-6 pb-6 mt-6">
-        <span className="block opacity-75 -mb-1">Indoor</span>
+        <span className="block opacity-75 -mb-1">{food?.category}</span>
         <div className="flex justify-between">
-            <span className="block font-semibold text-xl">Peace Lily</span>
+            <span className="block font-semibold text-sm">{food?.name}</span>
             <span className=" bg-white rounded-full text-blue-800 text-xs font-bold px-3 py-2 leading-none flex items-center">${food?.price}</span>
         </div>
     </div>

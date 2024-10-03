@@ -341,8 +341,6 @@
   }
   
   .cart-item .product-price {
-    background: var(--saffron);
-    color: var(--space-cadet);
     font-weight: 500;
     width:  60px;
     height: 60px;

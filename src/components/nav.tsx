@@ -71,8 +71,8 @@ export default function Nav({orders}:any) {
             </div>
 
             <h5 className="product-name">{item?.name}</h5>
-            <p className="product-price">
-              <span className="small">$</span>{item?.price}
+            <p className="product-price bg-blue-700 text-white hover:bg-blue-500">
+              <span className="small ">$</span>{item?.price.toFixed(2)}
             </p>
           </a>
         </li>)}
@@ -84,8 +84,8 @@ export default function Nav({orders}:any) {
       </ul>
 
       <div className="cart-btn-group">
-        <button className="btn btn-secondary">Total : {orders.reduce((prev:number,next:{price:number,quantite:number})=>prev +(next.price*next.quantite),0)}$</button>
-        <button className="btn btn-primary">Checkout</button>
+        <button className="btn btn-secondary">Total : {orders.reduce((prev:number,next:{price:number,quantite:number})=>prev +(next.price*next.quantite),0)?.toFixed(2)}$</button>
+        <button className="btn bg-blue-700 rounded-lg text-white hover:bg-blue-500">Checkout</button>
       </div>
 
     </div>
