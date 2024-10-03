@@ -7,34 +7,64 @@ import circle from "../assets/images/circle.svg"
 import ring from "../assets/images/ring.svg"
 import menu from "../assets/images/menu.svg"
 import arrow from "../assets/images/arrow.svg"
+import {motion} from "framer-motion"
 export default function Section() {
+
+  
+
+ 
   return (
-    <section className="home" id="home">
+    <motion.section className="home" id="home">
 
-    <div className="home-left">
+<motion.div 
+      className="home-left"
+      initial={{ opacity: 0, x: -50 }} // Start hidden and slightly left
+      animate={{ opacity: 1, x: 0 }}   // Fade in and move to original position
+      transition={{ duration: 0.5 }}    // Duration of animation
+    >
+      <motion.h1 
+        className="main-heading"
+        initial={{ opacity: 0, y: -30 }} // Start hidden and slightly above
+        animate={{ opacity: 1, y: 0 }}   // Fade in and move to original position
+        transition={{ duration: 0.7 }}   // Slightly delayed animation
+      >
+        We do not cook, we create your emotions!
+      </motion.h1>
 
-
-      <h1 className="main-heading">We do not cook, we create your emotions!</h1>
-
-      <p className="home-text">
+      <motion.p 
+        className="home-text"
+        initial={{ opacity: 0, y: 30 }}  // Start hidden and slightly below
+        animate={{ opacity: 1, y: 0 }}   // Fade in and move up
+        transition={{ duration: 0.6, delay: 0.2 }}  // Delay the text slightly
+      >
         Consectetur numquam poro nemo veniam eligendi rem adipisci quo modi
-      </p>
+      </motion.p>
 
-      <div className="btn-group">
-
-        <button className="btn btn-primary btn-icon">
-          <img src={menu} alt="menu icon"/>
+      <motion.div 
+        className="btn-group"
+        initial={{ opacity: 0, scale: 0.8 }} // Shrink and fade in
+        animate={{ opacity: 1, scale: 1 }}   // Grow and become fully visible
+        transition={{ duration: 0.5, delay: 0.4 }} // Delayed for a nice stagger effect
+      >
+        <motion.button 
+          className="btn btn-primary btn-icon"
+          whileHover={{ scale: 1.1 }} // Slightly grows when hovered
+          whileTap={{ scale: 0.95 }}  // Shrinks slightly when clicked
+        >
+          <img src={menu} alt="menu icon" />
           Our menu
-        </button>
+        </motion.button>
 
-        <button className="btn btn-secondary btn-icon">
-          <img src={arrow} alt="menu icon"/>
+        <motion.button 
+          className="btn btn-secondary btn-icon"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <img src={arrow} alt="menu icon" />
           About us
-        </button>
-
-      </div>
-
-    </div>
+        </motion.button>
+      </motion.div>
+    </motion.div>
 
     <div className="home-right">
 
@@ -53,6 +83,6 @@ export default function Section() {
 
     </div>
 
-  </section>
+  </motion.section>
     )
 }

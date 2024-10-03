@@ -24,14 +24,14 @@ const cartToggleFunc = function () {  }
 
 
 // add event on nav-toggle-btn
-navToggleBtn?.addEventListener('click', function () {
+const toggleCard = function () {
 
   // If the shopping-cart has an `active` class, it will be removed.
   if (shoppingCart?.classList.contains('active')) cartToggleFunc();
 
   navToggleFunc();
 
-});
+};
 
 // add event on cart-toggle-btn
 cartToggleBtn?.addEventListener('click', function () {
@@ -95,9 +95,7 @@ for (let i = 0; i < navLinks.length; i++) {
             <span className="count">{orders?.length}</span>
           </button>
 
-          <button className="menu-toggle-btn " onClick={()=>{
-            nav?.classList?.toggle("active")
-          }}>
+          <button className="menu-toggle-btn " onClick={()=>toggleCard}>
             <span className="line one"></span>
             <span className="line two"></span>
             <span className="line three"></span>

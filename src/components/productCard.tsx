@@ -1,12 +1,12 @@
 import {  FaShoppingCart } from "react-icons/fa";
 
-const FoodCard = ({ food, addToOrders,  orders = [] }: {
+const FoodCard = ({ food, addToOrders}: {
   food: FoodType,
   addToOrders: Function,
   orders: OrderType[]
 }) => {
   return (
-    <div className="flex-shrink-0 m-6 relative overflow-hidden bg-yellow-500 rounded-lg max-w-xs shadow-lg group">
+    <div className="flex-shrink-0 w-[250px] m-6 relative overflow-hidden bg-yellow-500 rounded-lg max-w-xs shadow-lg group">
       <FaShoppingCart onClick={()=>addToOrders(food)} className="text-black cursor-pointer absolute -top-0 z-50 right-0 bg-yellow-300  p-1 text-xl"/>
     <svg className="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
         viewBox="0 0 375 283" fill="none" style= {{opacity:0.1}}>
