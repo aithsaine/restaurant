@@ -38,20 +38,18 @@ export default function Nav({orders}:any) {
 
         <div className="navbar-btn-group">
 
-          <button onClick={()=>{
+          <button 
+          onClick={()=>{
               document.querySelector('.cart-box')?.classList.toggle('active')            
-          }} className="shopping-cart-btn">
+          }} className="shopping-cart-btn ">
             <img src={cart} alt="shopping cart icon" width="18"/>
-            <span className="count">{orders?.length}</span>
+            <span className="count bg-blue-600 text-white">{orders?.length}</span>
           </button>
 
           <button className="menu-toggle-btn " onClick={()=>{
               document.querySelector('.cart-box')?.classList.remove('active')            
             document.querySelector('.navbar-nav')?.classList.toggle("active")
           }}>
-            <span className="line one"></span>
-            <span className="line two"></span>
-            <span className="line three"></span>
           </button>
 
         </div>

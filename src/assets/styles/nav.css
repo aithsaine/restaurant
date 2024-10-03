@@ -240,7 +240,6 @@
   }
   
   .shopping-cart-btn .count {
-    background: var(--saffron);
     position: absolute;
     top:   -2px;
     right: -2px;
@@ -250,7 +249,6 @@
     align-items: center;
     padding: 0 7px;
     border-radius: 20px;
-    color: var(--space-cadet);
     font-size: 12px;
     font-weight: 500;
   }

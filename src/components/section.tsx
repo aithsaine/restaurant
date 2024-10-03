@@ -47,7 +47,7 @@ export default function Section() {
         transition={{ duration: 0.5, delay: 0.4 }} // Delayed for a nice stagger effect
       >
         <motion.button 
-          className="btn btn-primary btn-icon"
+          className="btn bg-blue-700 text-white rounded btn-icon"
           whileHover={{ scale: 1.1 }} // Slightly grows when hovered
           whileTap={{ scale: 0.95 }}  // Shrinks slightly when clicked
         >
