@@ -27,36 +27,36 @@ import burger11 from "./assets/img/burger/double-chicken-2.png"
 import burger12 from "./assets/img/burger/double-chicken.png"
 import { useState } from 'react';
 import Modal from './components/ordersModal';
-import { FaShop } from 'react-icons/fa6';
 import Nav from './components/nav';
 import Section from './components/section';
 function App() {
-  const foodItems = [
-    { name: "chicken box 1", image: chicken1, price: 12.99,id:1 ,category:"chicken" },
-    { name: "chicken box 2", image: chicken2, price: 9.99,id:2 ,category:"chicken" },
-    { name: "chicken box 3", image: chicken3 , price: 7.99,id:3 ,category:"chicken" },
-    { name: "chicken combo 1", image: chicken4, price: 11.99,id:4,category:"chicken"  },
-    { name: "chicken combo 2", image: chicken5, price: 5.99,id:5 ,category:"chicken" },
-    { name: "chicken delux 1", image: chicken6, price: 12.99,id:6,category:"chicken"  },
-    { name: "chicken delux 2", image: chicken7, price: 9.99,id:7 ,category:"chicken" },
-    { name: "chicken delux 3", image: chicken8 , price: 7.99,id:8 ,category:"chicken" },
-    { name: "chicken delux 3", image: chicken8 , price: 7.99,id:8 ,category:"chicken" },
-    { name: "burger bacon 1", image: burger1, price: 5.99 ,id:10 ,category:"chicken"},
-    { name: "burger bacon 2", image: burger2, price: 5.99 ,id:11 ,category:"burger"},
-    { name: "burger bacon 3", image: burger3, price: 5.99 ,id:12 ,category:"burger"},
-    { name: "burger beuf 1", image: burger4, price: 5.99 ,id:13 ,category:"burger"},
-    { name: "burger beuf 2", image: burger5, price: 5.99 ,id:14 ,category:"burger"},
-    { name: "burger beuf 3", image: burger6, price: 5.99 ,id:15 ,category:"burger"},
-    { name: "burger beuf 4", image: burger7, price: 5.99 ,id:16 ,category:"burger"},
-    { name: "cheeseburger 1", image: burger8, price: 5.99 ,id:17 ,category:"burger"},
-    { name: "cheeseburger 2", image: burger9, price: 5.99 ,id:18 ,category:"burger"},
-    { name: "cheeseburger 3", image: burger10, price: 5.99 ,id:19 ,category:"burger"},
-    { name: "double chicken 1", image: burger11, price: 5.99 ,id:20 ,category:"burger"},
-    { name: "double chicken 2", image: burger12, price: 5.99 ,id:21 ,category:"burger"},
+  const foods = [
+    { id:1 , name: "chicken box 1", image: chicken1, price: 12.99,category:"chicken" },
+    { id:2 ,name: "chicken box 2", image: chicken2, price: 9.99,category:"chicken" },
+    {id:3 , name: "chicken box 3", image: chicken3 , price: 7.99,category:"chicken" },
+    {id:4, name: "chicken combo 1", image: chicken4, price: 11.99,category:"chicken"  },
+    {id:5 , name: "chicken combo 2", image: chicken5, price: 5.99,category:"chicken" },
+    { id:6,name: "chicken delux 1", image: chicken6, price: 12.99,category:"chicken"  },
+    { id:7 ,name: "chicken delux 2", image: chicken7, price: 9.99,category:"chicken" },
+    {id:8 , name: "chicken delux 3", image: chicken8 , price: 7.99,category:"chicken" },
+    {id:8 , name: "chicken delux 3", image: chicken8 , price: 7.99,category:"chicken" },
+    {id:10 , name: "burger bacon 1", image: burger1, price: 5.99 ,category:"chicken"},
+    { id:11 ,name: "burger bacon 2", image: burger2, price: 5.99 ,category:"burger"},
+    { id:12 ,name: "burger bacon 3", image: burger3, price: 5.99 ,category:"burger"},
+    {id:13 , name: "burger beuf 1", image: burger4, price: 5.99 ,category:"burger"},
+    { id:14 ,name: "burger beuf 2", image: burger5, price: 5.99 ,category:"burger"},
+    { id:15 ,name: "burger beuf 3", image: burger6, price: 5.99 ,category:"burger"},
+    {id:16 , name: "burger beuf 4", image: burger7, price: 5.99 ,category:"burger"},
+    {id:17 , name: "cheeseburger 1", image: burger8, price: 5.99 ,category:"burger"},
+    {id:18 , name: "cheeseburger 2", image: burger9, price: 5.99 ,category:"burger"},
+    {id:19 , name: "cheeseburger 3", image: burger10, price: 5.99 ,category:"burger"},
+    {id:20 , name: "double chicken 1", image: burger11, price: 5.99 ,category:"burger"},
+    {id:21 , name: "double chicken 2", image: burger12, price: 5.99 ,category:"burger"},
 
 
   ];
-  const[orders,setOrders] = useState<any>([])
+  const[orders,setOrders] = useState< OrderType[]>([])
+  const [foodItems] = useState<FoodType[]>(foods)
   const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
   
   const [currentPage, setCurrentPage] = useState(1);
@@ -106,11 +106,10 @@ function App() {
       {/* Food Grid */}
     {false&&  <section className='flex flex-col w-full mt-8 min-h-screen'>
         <div className="w-full grid grid-cols-2 md:grid-cols-6 gap-4">
-          {currentItems.map((item: any) => (
+          {currentItems.map((item) => (
             <FoodCard
               key={item.id}
               orders={orders}
-              size="small"
               addToOrders={addToOrders}
               food={item}
             />
@@ -166,7 +165,7 @@ function App() {
                 </tr>
               </thead>
               <tbody>
-                {orders.map((item: any) => (
+                {orders.map((item) => (
                   <tr className="border-b" key={item.id}>
                     <td className="px-6 py-4 font-medium text-white whitespace-nowrap">
                       <img src={item.image} width={50} alt={item.name} />

@@ -1,11 +1,5 @@
 import '../assets/styles/nav.css'
-import logo from "../assets/images/logo.svg"
 import cart from "../assets/images/cart.svg"
-import menu1 from "../assets/images/menu1.jpg"
-import menu2 from "../assets/images/menu2.jpg"
-import menu3 from "../assets/images/menu3.jpg"
-import menu4 from "../assets/images/menu4.jpg"
-import menu5 from "../assets/images/menu5.jpg"
 export default function Nav({orders}:any) {
 
 
@@ -115,7 +109,7 @@ for (let i = 0; i < navLinks.length; i++) {
 
     </nav>
 
-    <div className="cart-box active">
+    <div className="cart-box ">
 
       <ul className="cart-box-ul">
 
@@ -136,66 +130,12 @@ for (let i = 0; i < navLinks.length; i++) {
 
        
 
-        {/* <li>
-          <a href="#" className="cart-item">
-            <div className="img-box">
-              <img src={menu2} alt="product image" className="product-img" width="50" height="50"
-                loading="lazy"/>
-            </div>
-
-            <h5 className="product-name">Chevrefried with honey</h5>
-            <p className="product-price">
-              <span className="small">$</span>14
-            </p>
-          </a>
-        </li>
-
-        <li>
-          <a href="#" className="cart-item">
-            <div className="img-box">
-              <img src={menu3} alt="product image" className="product-img" width="50" height="50"
-                loading="lazy"/>
-            </div>
-
-            <h5 className="product-name">Crispy fish</h5>
-            <p className="product-price">
-              <span className="small">$</span>4
-            </p>
-          </a>
-        </li>
-
-        <li>
-          <a href="#" className="cart-item">
-            <div className="img-box">
-              <img src={menu4} alt="product image" className="product-img" width="50" height="50"
-                loading="lazy"/>
-            </div>
-
-            <h5 className="product-name">Stracciatella</h5>
-            <p className="product-price">
-              <span className="small">$</span>11
-            </p>
-          </a>
-        </li>
-
-        <li>
-          <a href="#" className="cart-item">
-            <div className="img-box">
-              <img src={menu5} alt="product image" className="product-img" width="50" height="50"
-                loading="lazy"/>
-            </div>
-
-            <h5 className="product-name">Sea bream carpaccio</h5>
-            <p className="product-price">
-              <span className="small">$</span>19
-            </p>
-          </a>
-        </li> */}
+        
 
       </ul>
 
       <div className="cart-btn-group">
-        <button className="btn btn-secondary">Total : {orders.reduce((prev,next)=>prev +(next.price*next.quantite),0)}$</button>
+        <button className="btn btn-secondary">Total : {orders.reduce((prev:number,next:{price:number,quantite:number})=>prev +(next.price*next.quantite),0)}$</button>
         <button className="btn btn-primary">Checkout</button>
       </div>
 

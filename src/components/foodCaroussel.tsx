@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import FoodCard from "./productCard";
 import { useEffect, useState } from "react";
-const FoodCarousel = ({ foods,addToOrders,orders }) => {
+const FoodCarousel = ({ foods,addToOrders,orders }:{foods:FoodType[],addToOrders:Function,orders:OrderType[] }) => {
   const [perView,setPerview] = useState<number>(5)
 
   const perviewItems = ()=>{
@@ -47,9 +47,9 @@ const FoodCarousel = ({ foods,addToOrders,orders }) => {
     return (
       <div className="container mx-auto px-4 bg-transparent">
         <Slider {...settings}>
-          {foods.map((food:any, index:number) => (
+          {foods.map((food, index:number) => (
             <div key={index}>
-              <FoodCard orders={orders} addToOrders={addToOrders}  size='large' food={food} />
+              <FoodCard orders={orders} addToOrders={addToOrders}   food={food} />
             </div>
           ))}
         </Slider>
