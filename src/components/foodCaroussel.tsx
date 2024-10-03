@@ -4,48 +4,43 @@ import { useEffect, useState } from "react";
 const FoodCarousel = ({ foods,addToOrders,orders }:{foods:FoodType[],addToOrders:Function,orders:OrderType[] }) => {
   const [perView,setPerview] = useState<number>(5)
 
-  const perviewItems = ()=>{
-    if(window.innerWidth<400)
-    {
-      return setPerview(3)
-    }
-    else if(window.innerWidth<600)
-    {
-      return setPerview(4)
-    }
-    else return setPerview(5)
-  }
-  useEffect(()=>{
-    perviewItems()
-  },[window.innerWidth])
+
+  
     // Slider settings for auto-changing
     const settings = {
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: perView, // Number of cards visible at a time
+      slidesToShow: 4, // Number of cards visible at a time on large screens
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 3000, // Auto-change speed (3 seconds)
       pauseOnHover: true,
       responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 1440, // Large screens (desktops)
           settings: {
-            slidesToShow: 2,
+            slidesToShow: 4, // Show 4 cards on larger desktops
           },
         },
         {
-          breakpoint: 640,
+          breakpoint: 1024, // Medium screens (tablets, small desktops)
           settings: {
-            slidesToShow: 1,
+            slidesToShow: 2, // Show 3 cards on tablets and medium devices
           },
         },
+        {
+          breakpoint: 768, // Small screens (large mobile devices)
+          settings: {
+            slidesToShow: 1, // Show 2 cards on smaller devices
+          },
+        }
       ],
     };
+    
   
     return (
-      <div className="container mx-auto px-4 bg-transparent">
+      <div className="container mx-auto bg-transparent">
         <Slider {...settings}>
           {foods.map((food, index:number) => (
             <div key={index}>
