@@ -1,54 +1,6 @@
 import '../assets/styles/nav.css'
 import cart from "../assets/images/cart.svg"
 export default function Nav({orders}:any) {
-
-
-// navbar variables
-const nav = document.querySelector('.navbar-nav');
-const navLinks = document.querySelectorAll('.nav-link');
-const cartToggleBtn = document.querySelector('.shopping-cart-btn');
-const navToggleBtn = document.querySelector('.menu-toggle-btn');
-const shoppingCart = document.querySelector('.cart-box');
-
-
-
-// nav toggle function
-const navToggleFunc = function () {
-  nav?.classList.toggle('active');
-  navToggleBtn?.classList.toggle('active');
-}
-
-// shopping cart toggle function
-const cartToggleFunc = function () {  }
-
-
-
-// add event on nav-toggle-btn
-const toggleCard = function () {
-
-  // If the shopping-cart has an `active` class, it will be removed.
-  if (shoppingCart?.classList.contains('active')) cartToggleFunc();
-
-  navToggleFunc();
-
-};
-
-// add event on cart-toggle-btn
-cartToggleBtn?.addEventListener('click', function () {
-
-  // If the navbar-nav has an `active` class, it will be removed.
-  if (nav?.classList.contains('active')) navToggleFunc();
-
-  cartToggleFunc();
-
-});
-
-// add event on all nav-link
-for (let i = 0; i < navLinks.length; i++) {
-
-  navLinks[i].addEventListener('click', navToggleFunc);
-
-}
   return (
     <header className=''>
 
@@ -87,15 +39,16 @@ for (let i = 0; i < navLinks.length; i++) {
         <div className="navbar-btn-group">
 
           <button onClick={()=>{
-              if (nav?.classList.contains('active')) navToggleFunc();
-
-              shoppingCart?.classList.toggle('active')            
+              document.querySelector('.cart-box')?.classList.toggle('active')            
           }} className="shopping-cart-btn">
             <img src={cart} alt="shopping cart icon" width="18"/>
             <span className="count">{orders?.length}</span>
           </button>
 
-          <button className="menu-toggle-btn " onClick={()=>toggleCard}>
+          <button className="menu-toggle-btn " onClick={()=>{
+              document.querySelector('.cart-box')?.classList.remove('active')            
+            document.querySelector('.navbar-nav')?.classList.toggle("active")
+          }}>
             <span className="line one"></span>
             <span className="line two"></span>
             <span className="line three"></span>
